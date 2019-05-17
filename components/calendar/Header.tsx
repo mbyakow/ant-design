@@ -2,7 +2,11 @@ import * as React from 'react';
 import * as moment from 'moment';
 import { PREFIX_CLS } from './Constants';
 import Select from '../select';
-import { Group, Button } from '../radio';
+import { Group, Button as RadioButton } from '../radio';
+import Icon from '../icon';
+import ButtonGroup from '../button/button-group';
+import Button from '../button/button';
+
 const Option = Select.Option;
 
 export interface HeaderProps {
@@ -15,20 +19,23 @@ export interface HeaderProps {
   onValueChange?: (value: moment.Moment) => void;
   onTypeChange?: (type: string) => void;
   value: any;
+  defaulValue: any;
+  hideTypeSwitch?: boolean;
+  showNavigation?: boolean;
 }
 
 export default class Header extends React.Component<HeaderProps, any> {
   static defaultProps = {
     prefixCls: `${PREFIX_CLS}-header`,
-    yearSelectOffset: 10,
-    yearSelectTotal: 20,
+    yearSelectOffset: 2,
+    yearSelectTotal: 5,
   };
 
   private calenderHeaderNode: HTMLDivElement;
 
   getYearSelectElement(year: number) {
-    const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen } = this.props;
-    const start = year - (yearSelectOffset as number);
+    const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen, defaulValue } = this.props;
+    const start = defaulValue.year() - (yearSelectOffset as number);
     const end = start + (yearSelectTotal as number);
     const suffix = locale.year === '年' ? '年' : '';
 
@@ -56,7 +63,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     const months: any[] = [];
     for (let i = 0; i < 12; i++) {
       current.month(i);
-      months.push(localeData.monthsShort(current));
+      months.push(localeData.months(current));
     }
     return months;
   }
@@ -110,27 +117,68 @@ export default class Header extends React.Component<HeaderProps, any> {
     }
   }
 
+  onClickBackwards = () => {
+    const type = this.props.type;
+    const newValue = this.props.value.clone();
+    newValue.add(-1, type === 'date' ? 'month' : 'year');
+    const onValueChange = this.props.onValueChange;
+    if (onValueChange) {
+      onValueChange(newValue);
+    }
+  }
+
+  onClickForwards = () => {
+    const type = this.props.type;
+    const newValue = this.props.value.clone();
+    newValue.add(1, type === 'date' ? 'month' : 'year');
+    const onValueChange = this.props.onValueChange;
+    if (onValueChange) {
+      onValueChange(newValue);
+    }
+  }
+
   getCalenderHeaderNode = (node: HTMLDivElement) => {
     this.calenderHeaderNode = node;
   }
 
+  getNavigation = () => {
+    const { locale, showNavigation } = this.props;
+
+    return showNavigation ? (
+      <Group>
+        <ButtonGroup>
+          <Button onClick={this.onClickBackwards}>
+            <Icon type="left" />
+            {locale.navigationPlaceholder[0]}
+          </Button>
+          <Button onClick={this.onClickForwards}>
+            {locale.navigationPlaceholder[1]}
+            <Icon type="right" />
+          </Button>
+        </ButtonGroup>
+      </Group>
+    ): ''
+  }
+
   render() {
-    const { type, value, prefixCls, locale, fullscreen } = this.props;
+    const { type, value, prefixCls, locale, fullscreen, hideTypeSwitch } = this.props;
     const yearSelect = this.getYearSelectElement(value.year());
     const monthSelect = type === 'date' ?
       this.getMonthSelectElement(value.month(), this.getMonthsLocale(value)) : null;
+    const navigation = this.getNavigation();
     const size = (fullscreen ? 'default' : 'small') as any;
-    const typeSwitch = (
+    const typeSwitch = ! hideTypeSwitch ? (
       <Group onChange={this.onTypeChange} value={type} size={size}>
-        <Button value="date">{locale.month}</Button>
-        <Button value="month">{locale.year}</Button>
+        <RadioButton value="date">{locale.month}</RadioButton>
+        <RadioButton value="month">{locale.year}</RadioButton>
       </Group>
-    );
+    ) : null;
 
     return (
       <div className={`${prefixCls}-header`} ref={this.getCalenderHeaderNode}>
         {yearSelect}
         {monthSelect}
+        {navigation}
         {typeSwitch}
       </div>
     );

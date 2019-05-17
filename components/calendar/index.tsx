@@ -7,6 +7,8 @@ import { PREFIX_CLS } from './Constants';
 import Header from './Header';
 import callMoment from '../_util/callMoment';
 import enUS from './locale/en_US';
+import Spin from '../spin/index';
+import { Icon } from '../index';
 
 export { HeaderProps } from './Header';
 
@@ -27,7 +29,9 @@ export interface CalendarProps {
   value?: moment.Moment;
   defaultValue?: moment.Moment;
   mode?: CalendarMode;
+  loading?: boolean;
   fullscreen?: boolean;
+  showNavigation?: boolean;
   dateCellRender?: (date: moment.Moment) => React.ReactNode;
   monthCellRender?: (date: moment.Moment) => React.ReactNode;
   dateFullCellRender?: (date: moment.Moment) => React.ReactNode;
@@ -41,6 +45,7 @@ export interface CalendarProps {
 
 export interface CalendarState {
   value: moment.Moment;
+  defaultValue: moment.Moment;
   mode?: CalendarMode;
 }
 
@@ -82,6 +87,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     this.state = {
       value,
       mode: props.mode,
+      defaultValue: value
     };
   }
 
@@ -163,11 +169,11 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
 
   renderCalendar = (locale: any, localeCode: string) => {
     const { state, props } = this;
-    const { value, mode } = state;
+    const { value, defaultValue, mode } = state;
     if (value && localeCode) {
       value.locale(localeCode);
     }
-    const { prefixCls, style, className, fullscreen, dateFullCellRender, monthFullCellRender } = props;
+    const { prefixCls, style, className, fullscreen, dateFullCellRender, monthFullCellRender, loading, showNavigation } = props;
     const type = (mode === 'year') ? 'month' : 'date';
 
     let cls = className || '';
@@ -178,16 +184,21 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     const monthCellRender = monthFullCellRender || this.monthCellRender;
     const dateCellRender = dateFullCellRender || this.dateCellRender;
 
-    return (
-      <div className={cls} style={style}>
+    const spinnerIcon = <Icon type="loading" style={{ padding: '1em', fontSize: 30 }} />;
+    const loader = <Spin indicator={spinnerIcon} style={{ width: '100%' }} />;
+
+    const calendarContent = (
+      <div>
         <Header
           fullscreen={fullscreen}
           type={type}
           value={value}
+          defaulValue={defaultValue}
           locale={locale.lang}
           prefixCls={prefixCls}
           onTypeChange={this.onHeaderTypeChange}
           onValueChange={this.onHeaderValueChange}
+          showNavigation={showNavigation}
         />
         <FullCalendar
           {...props}
@@ -201,6 +212,12 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
           dateCellRender={dateCellRender}
           onSelect={this.onSelect}
         />
+      </div>
+    );
+
+    return (
+      <div className={cls} style={style}>
+        { loading ? loader : calendarContent }
       </div>
     );
   }
