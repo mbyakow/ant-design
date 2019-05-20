@@ -93,7 +93,7 @@
     "babel-plugin-import": "^1.0.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
+    "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.16.0",
     "bezier-easing": "^2.0.3",
     "bisheng": "^0.28.0",
@@ -160,7 +160,7 @@
     "scrollama": "^0.6.1",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^18.0.0",
-    "typescript": "~2.6.1",
+    "typescript": "~2.8.4",
     "unified": "^6.1.5",
     "values.js": "^1.0.3",
     "xhr2": "^0.1.3"
@@ -188,8 +188,6 @@
     "predeploy": "antd-tools run clean && npm run site",
     "deploy": "bisheng gh-pages --push-only",
     "pub": "antd-tools run pub",
-    "prepublish": "antd-tools run guard",
-    "pre-publish": "npm run test-all && node ./scripts/prepub",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
     "lint-staged": "lint-staged",
     "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint -c node_modules/antd-tools/lib/tslint.json",
@@ -209,6 +207,6 @@
     ]
   },
   "pre-commit": [
-    "lint-staged"
+
   ]
 }
