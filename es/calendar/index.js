@@ -11,7 +11,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { PREFIX_CLS } from './Constants';
 import Header from './Header';
 import callMoment from '../_util/callMoment';
-import enUS from './locale/en_US';
+import ru_RU from './locale/ru_RU';
 import Spin from '../spin/index';
 import { Icon } from '../index';
 function noop() {
@@ -177,7 +177,7 @@ var Calendar = function (_React$Component) {
         value: function render() {
             return React.createElement(
                 LocaleReceiver,
-                { componentName: 'Calendar', defaultLocale: enUS },
+                { componentName: 'Calendar', defaultLocale: ru_RU },
                 this.renderCalendar
             );
         }
