@@ -23,7 +23,6 @@ export interface LocaleProviderProps {
 }
 
 function setMomentLocale(locale: Locale) {
-  console.log(locale);
   if (locale && locale.locale) {
     moment.locale(locale.locale);
   } else {

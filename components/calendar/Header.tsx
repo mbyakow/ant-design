@@ -59,15 +59,12 @@ export default class Header extends React.Component<HeaderProps, any> {
 
   getMonthsLocale(value: moment.Moment) {
     const current = value.clone();
-    const localeData = value.localeData();
+    const localeData = value.locale('ru').localeData();
     const months: any[] = [];
     for (let i = 0; i < 12; i++) {
       current.month(i);
       months.push(localeData.months(current));
     }
-
-    console.log(localeData);
-    console.log('months ', months);
 
     return months;
   }
