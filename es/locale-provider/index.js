@@ -8,10 +8,11 @@ import PropTypes from 'prop-types';
 import * as moment from 'moment';
 import { changeConfirmLocale } from '../modal/locale';
 function setMomentLocale(locale) {
+    console.log(locale);
     if (locale && locale.locale) {
         moment.locale(locale.locale);
     } else {
-        moment.locale('en');
+        moment.locale('ru');
     }
 }
 
