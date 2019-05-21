@@ -65,6 +65,10 @@ export default class Header extends React.Component<HeaderProps, any> {
       current.month(i);
       months.push(localeData.months(current));
     }
+
+    console.log(localeData);
+    console.log('months ', months);
+
     return months;
   }
 
