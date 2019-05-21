@@ -53,3 +53,5 @@ $ npm install
 $ npm start
 $ npm run compile
 ```
+
+Currently compiles with `Node v10.15.3` and `Typescript 2.6.2`.   

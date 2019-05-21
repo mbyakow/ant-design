@@ -167,6 +167,18 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     this.setValue(value, 'select');
   }
 
+  getDefaultLocale = () => {
+    const result = {
+      ...ru_RU,
+      ...this.props.locale,
+    };
+    result.lang = {
+      ...result.lang,
+      ...(this.props.locale || {}).lang,
+    };
+    return result;
+  };
+
   renderCalendar = (locale: any, localeCode: string) => {
     const { state, props } = this;
     const { value, defaultValue, mode } = state;
@@ -224,10 +236,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
 
   render() {
     return (
-      <LocaleReceiver
-        componentName="Calendar"
-        defaultLocale={ru_RU}
-      >
+      <LocaleReceiver componentName="Calendar" defaultLocale={this.getDefaultLocale}>
         {this.renderCalendar}
       </LocaleReceiver>
     );

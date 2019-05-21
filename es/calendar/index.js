@@ -102,6 +102,11 @@ var Calendar = function (_React$Component) {
         _this.onSelect = function (value) {
             _this.setValue(value, 'select');
         };
+        _this.getDefaultLocale = function () {
+            var result = _extends({}, ru_RU, _this.props.locale);
+            result.lang = _extends({}, result.lang, (_this.props.locale || {}).lang);
+            return result;
+        };
         _this.renderCalendar = function (locale, localeCode) {
             var state = _this.state,
                 props = _this.props;
@@ -177,7 +182,7 @@ var Calendar = function (_React$Component) {
         value: function render() {
             return React.createElement(
                 LocaleReceiver,
-                { componentName: 'Calendar', defaultLocale: ru_RU },
+                { componentName: 'Calendar', defaultLocale: this.getDefaultLocale },
                 this.renderCalendar
             );
         }

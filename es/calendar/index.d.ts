@@ -60,6 +60,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     onHeaderTypeChange: (type: string) => void;
     onPanelChange(value: moment.Moment, mode: CalendarMode | undefined): void;
     onSelect: (value: moment.Moment) => void;
+    getDefaultLocale: () => any;
     renderCalendar: (locale: any, localeCode: string) => JSX.Element;
     render(): JSX.Element;
 }

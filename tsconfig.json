@@ -1,17 +1,6 @@
 {
   "compilerOptions": {
-    "strictNullChecks": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "jsx": "preserve",
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "noImplicitAny": true,
-    "target": "es6",
-    "lib": [
-      "dom",
-      "es7"
-    ]
+    "checkJs": false
   },
   "exclude": [
     "node_modules",
