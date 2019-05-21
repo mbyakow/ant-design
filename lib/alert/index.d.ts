@@ -24,7 +24,7 @@ export interface AlertProps {
 }
 export default class Alert extends React.Component<AlertProps, any> {
     constructor(props: AlertProps);
-    handleClose: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+    handleClose: (e: React.MouseEvent<HTMLAnchorElement>) => void;
     animationEnd: () => void;
     render(): JSX.Element | null;
 }

@@ -45,8 +45,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     componentDidMount(): void;
     shouldComponentUpdate(...args: any[]): any;
     getHelpMsg(): any;
-    getControls(children: React.ReactNode, recursively: boolean): React.ReactElement<any, string | ((props: any) => React.ReactElement<any, string | any | (new (props: any) => React.Component<any, any, any>)> | null) | (new (props: any) => React.Component<any, any, any>)>[];
-    getOnlyControl(): React.ReactElement<any, string | ((props: any) => React.ReactElement<any, string | any | (new (props: any) => React.Component<any, any, any>)> | null) | (new (props: any) => React.Component<any, any, any>)> | null;
+    getControls(children: React.ReactNode, recursively: boolean): React.ReactElement<any>[];
+    getOnlyControl(): React.ReactElement<any> | null;
     getChildProp(prop: string): any;
     getId(): any;
     getMeta(): any;

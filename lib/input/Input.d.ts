@@ -71,8 +71,8 @@ export default class Input extends React.Component<InputProps, any> {
     blur(): void;
     getInputClassName(): any;
     saveInput: (node: HTMLInputElement) => void;
-    renderLabeledInput(children: React.ReactElement<any>): JSX.Element;
-    renderLabeledIcon(children: React.ReactElement<any>): JSX.Element;
-    renderInput(): JSX.Element;
-    render(): JSX.Element;
+    renderLabeledInput(children: React.ReactElement<any>): React.ReactElement<any>;
+    renderLabeledIcon(children: React.ReactElement<any>): React.ReactElement<any>;
+    renderInput(): React.ReactElement<any>;
+    render(): React.ReactElement<any>;
 }

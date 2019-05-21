@@ -25,7 +25,7 @@ export default class Tag extends React.Component<TagProps, TagState> {
         closable: boolean;
     };
     constructor(props: TagProps);
-    close: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+    close: (e: React.MouseEvent<HTMLElement>) => void;
     animationEnd: (_: string, existed: boolean) => void;
     isPresetColor(color?: string): boolean;
     render(): JSX.Element;

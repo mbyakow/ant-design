@@ -68,7 +68,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     handleRadioSelect: (record: T, rowIndex: number, e: React.ChangeEvent<HTMLInputElement>) => void;
     handleSelectRow: (selectionKey: string, index: number, onSelectFunc: SelectionItemSelectFn) => any;
     handlePageChange: (current: number, ...otherArguments: any[]) => void;
-    renderSelectionBox: (type: "checkbox" | "radio" | undefined) => (_: any, record: T, index: number) => JSX.Element;
+    renderSelectionBox: (type: "radio" | "checkbox" | undefined) => (_: any, record: T, index: number) => JSX.Element;
     getRecordKey: (record: T, index: number) => any;
     getPopupContainer: () => HTMLElement;
     renderRowSelection(locale: TableLocale): ColumnProps<T>[];
@@ -79,7 +79,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     handleShowSizeChange: (current: number, pageSize: number) => void;
     renderPagination(): JSX.Element | null;
     prepareParamsArguments(state: any): [any, string[], Object];
-    findColumn(myKey: string | number): any;
+    findColumn(myKey: string | number): undefined;
     getCurrentPageData(): T[];
     getFlatData(): any[];
     getFlatCurrentPageData(): any[];

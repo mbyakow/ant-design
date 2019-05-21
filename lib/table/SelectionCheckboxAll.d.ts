@@ -11,8 +11,8 @@ export default class SelectionCheckboxAll<T> extends React.Component<SelectionCh
     subscribe(): void;
     checkSelection(data: T[], type: string, byDefaultChecked: boolean): boolean;
     setCheckState(props: SelectionCheckboxAllProps<T>): void;
-    getCheckState(props: SelectionCheckboxAllProps<T>): any;
-    getIndeterminateState(props: SelectionCheckboxAllProps<T>): any;
+    getCheckState(props: SelectionCheckboxAllProps<T>): boolean;
+    getIndeterminateState(props: SelectionCheckboxAllProps<T>): boolean;
     handleSelectAllChagne: (e: React.ChangeEvent<HTMLInputElement>) => void;
     renderMenus(selections: SelectionItem[]): JSX.Element[];
     render(): JSX.Element;

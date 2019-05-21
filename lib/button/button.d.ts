@@ -50,7 +50,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     componentDidMount(): void;
     componentWillReceiveProps(nextProps: ButtonProps): void;
     componentWillUnmount(): void;
-    handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+    handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
     isNeedInserted(): boolean;
     render(): JSX.Element;
 }

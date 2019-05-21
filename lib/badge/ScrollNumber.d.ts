@@ -24,8 +24,8 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
     constructor(props: ScrollNumberProps);
     getPositionByNum(num: number, i: number): number;
     componentWillReceiveProps(nextProps: ScrollNumberProps): void;
-    renderNumberList(position: number): React.ReactElement<any, string | ((props: any) => React.ReactElement<any, string | any | (new (props: any) => React.Component<any, any, any>)> | null) | (new (props: any) => React.Component<any, any, any>)>[];
-    renderCurrentNumber(num: number, i: number): React.ReactElement<{
+    renderNumberList(position: number): React.ReactElement<any>[];
+    renderCurrentNumber(num: number, i: number): React.DetailedReactHTMLElement<{
         className: string;
         style: {
             transition: string | boolean;
@@ -34,8 +34,8 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
             transform: string;
         };
         key: number;
-    }, string | ((props: any) => React.ReactElement<any, string | any | (new (props: any) => React.Component<any, any, any>)> | null) | (new (props: any) => React.Component<any, any, any>)>;
-    renderNumberElement(): string | number | React.ReactElement<{
+    }, HTMLElement>;
+    renderNumberElement(): string | number | React.DetailedReactHTMLElement<{
         className: string;
         style: {
             transition: string | boolean;
@@ -44,6 +44,6 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
             transform: string;
         };
         key: number;
-    }, string | ((props: any) => React.ReactElement<any, string | any | (new (props: any) => React.Component<any, any, any>)> | null) | (new (props: any) => React.Component<any, any, any>)>[] | undefined;
-    render(): React.ComponentElement<any, React.Component<any, any, any>>;
+    }, HTMLElement>[] | undefined;
+    render(): React.ComponentElement<any, React.Component<any, React.ComponentState>>;
 }

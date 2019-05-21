@@ -99,9 +99,9 @@ export default class Transfer extends React.Component<TransferProps, any> {
     handleSelect: (direction: "left" | "right", selectedItem: TransferItem, checked: boolean) => void;
     handleLeftSelect: (selectedItem: TransferItem, checked: boolean) => void;
     handleRightSelect: (selectedItem: TransferItem, checked: boolean) => void;
-    handleScroll: (direction: "left" | "right", e: React.SyntheticEvent<HTMLDivElement, Event>) => void;
-    handleLeftScroll: (e: React.SyntheticEvent<HTMLDivElement, Event>) => void;
-    handleRightScroll: (e: React.SyntheticEvent<HTMLDivElement, Event>) => void;
+    handleScroll: (direction: "left" | "right", e: React.SyntheticEvent<HTMLDivElement>) => void;
+    handleLeftScroll: (e: React.SyntheticEvent<HTMLDivElement>) => void;
+    handleRightScroll: (e: React.SyntheticEvent<HTMLDivElement>) => void;
     getTitles(transferLocale: TransferLocale): string[];
     getSelectedKeysName(direction: TransferDirection): "sourceSelectedKeys" | "targetSelectedKeys";
     renderTransfer: (locale: TransferLocale) => JSX.Element;

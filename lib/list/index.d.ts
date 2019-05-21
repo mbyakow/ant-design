@@ -57,7 +57,7 @@ export default class List extends React.Component<ListProps> {
     getChildContext(): {
         grid: ListGridType | undefined;
     };
-    renderItem: (item: React.ReactElement<any, string | ((props: any) => React.ReactElement<any, string | any | (new (props: any) => React.Component<any, any, any>)> | null) | (new (props: any) => React.Component<any, any, any>)>, index: number) => any;
+    renderItem: (item: React.ReactElement<any>, index: number) => any;
     isSomethingAfterLastTtem(): boolean;
     renderEmpty: (contextLocale: ListLocale) => JSX.Element;
     render(): JSX.Element;

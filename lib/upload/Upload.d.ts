@@ -2,7 +2,6 @@
 import * as React from 'react';
 import Dragger from './Dragger';
 import { UploadProps, UploadState, UploadFile, UploadLocale, UploadChangeParam } from './interface';
-import { T } from './utils';
 export { UploadProps };
 export default class Upload extends React.Component<UploadProps, UploadState> {
     static Dragger: typeof Dragger;
@@ -13,7 +12,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
         action: string;
         data: {};
         accept: string;
-        beforeUpload: typeof T;
+        beforeUpload: () => boolean;
         showUploadList: boolean;
         listType: string;
         className: string;

@@ -82,12 +82,12 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     handleChange: (value: any, selectedOptions: any[]) => void;
     handlePopupVisibleChange: (popupVisible: boolean) => void;
     handleInputBlur: () => void;
-    handleInputClick: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
+    handleInputClick: (e: React.MouseEvent<HTMLInputElement>) => void;
     handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
     handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     setValue: (value: string[], selectedOptions?: any[]) => void;
     getLabel(): any;
-    clearSelection: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+    clearSelection: (e: React.MouseEvent<HTMLElement>) => void;
     flattenTree(options: CascaderOptionType[], changeOnSelect: boolean | undefined, ancestor?: CascaderOptionType[]): any;
     generateFilteredOptions(prefixCls: string | undefined): CascaderOptionType[];
     focus(): void;

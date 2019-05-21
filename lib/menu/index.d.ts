@@ -68,7 +68,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     constructor(props: MenuProps);
     getChildContext(): {
         inlineCollapsed: any;
-        antdMenuTheme: "dark" | "light" | undefined;
+        antdMenuTheme: "light" | "dark" | undefined;
     };
     componentWillReceiveProps(nextProps: MenuProps, nextContext: SliderContext): void;
     handleClick: (e: ClickParam) => void;
@@ -76,6 +76,6 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     setOpenKeys(openKeys: string[]): void;
     getRealMenuMode(): "inline" | "horizontal" | "vertical" | "vertical-left" | "vertical-right" | undefined;
     getInlineCollapsed(): any;
-    getMenuOpenAnimation(menuMode: MenuMode): Object | undefined;
+    getMenuOpenAnimation(menuMode: MenuMode): string | Object | undefined;
     render(): JSX.Element | null;
 }

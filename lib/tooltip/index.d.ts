@@ -46,7 +46,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     getPopupDomNode(): any;
     getPlacements(): any;
     isHoverTrigger(): boolean;
-    getDisabledCompatibleChildren(element: React.ReactElement<any>): JSX.Element;
+    getDisabledCompatibleChildren(element: React.ReactElement<any>): React.ReactElement<any>;
     isNoTitle(): boolean;
     onPopupAlign: (domNode: HTMLElement, align: any) => void;
     saveTooltip: (node: any) => void;

@@ -29,8 +29,8 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
     constructor(props: PopconfirmProps);
     componentWillReceiveProps(nextProps: PopconfirmProps): void;
     getPopupDomNode(): any;
-    onConfirm: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-    onCancel: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+    onConfirm: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    onCancel: (e: React.MouseEvent<HTMLButtonElement>) => void;
     onVisibleChange: (visible: boolean) => void;
     setVisible(visible: boolean): void;
     saveTooltip: (node: any) => void;

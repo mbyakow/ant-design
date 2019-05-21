@@ -13,7 +13,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         showPreviewIcon: boolean;
     };
     handleClose: (file: UploadFile) => void;
-    handlePreview: (file: UploadFile, e: React.SyntheticEvent<HTMLElement, Event>) => void;
+    handlePreview: (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => void;
     componentDidUpdate(): void;
     render(): JSX.Element;
 }

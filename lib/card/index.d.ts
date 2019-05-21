@@ -42,7 +42,7 @@ export default class Card extends React.Component<CardProps, {}> {
     updateWiderPadding(): void;
     onTabChange: (key: string) => void;
     saveRef: (node: HTMLDivElement) => void;
-    isContainGrid(): any;
+    isContainGrid(): undefined;
     getAction(actions: React.ReactNode[]): JSX.Element[] | null;
     getCompatibleHoverable(): boolean | undefined;
     render(): JSX.Element;
