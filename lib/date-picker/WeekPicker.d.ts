@@ -11,7 +11,7 @@ export default class WeekPicker extends React.Component<any, any> {
     componentWillReceiveProps(nextProps: any): void;
     weekDateRender: (current: any) => JSX.Element;
     handleChange: (value: moment.Moment | null) => void;
-    clearSelection: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+    clearSelection: (e: React.MouseEvent<HTMLElement>) => void;
     focus(): void;
     blur(): void;
     saveInput: (node: any) => void;

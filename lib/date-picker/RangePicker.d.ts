@@ -16,7 +16,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     private picker;
     constructor(props: any);
     componentWillReceiveProps(nextProps: any): void;
-    clearSelection: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+    clearSelection: (e: React.MouseEvent<HTMLElement>) => void;
     clearHoverValue: () => void;
     handleChange: (value: RangePickerValue) => void;
     handleOpenChange: (open: boolean) => void;
